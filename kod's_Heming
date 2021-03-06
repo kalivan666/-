@@ -1,8 +1,11 @@
-import collections
-
 to_monitor = {}
 def main(to_monitor, k = 0, w = 0, K = 1):
-    kod = input()
+    Kod = input()
+    res = ''.join(format(ord(i), 'b') for i in Kod)
+    if check(Kod):
+        kod = Kod
+    else:
+        kod = str(res)
     Len_kod = len(kod)
     c = number(to_monitor, Len_kod)
     LenFull = Len_kod + c
@@ -63,6 +66,13 @@ def number(to_monitor, Len_kod, k = 1, c = 0):
         k = k * 2
         c = c + 1
     return c
+
+def check(b):
+    try:
+        int(b)
+        return True
+    except ValueError:
+        return False
 
 
 
